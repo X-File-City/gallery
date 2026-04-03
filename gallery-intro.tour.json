@@ -1,0 +1,234 @@
+{
+  "id": "gallery-intro",
+  "title": "Google AI Edge Gallery",
+  "description": "A guided tour of the AI Edge Gallery — an on-device generative AI showcase app for Android with agent skills, LLM chat, benchmarking, and more.",
+  "version": "1.0.0",
+  "steps": [
+    {
+      "id": "overview",
+      "title": "Welcome to AI Edge Gallery",
+      "description": "AI Edge Gallery is Google's open-source app for running powerful on-device LLMs on mobile. The repo contains the Android app source, model allowlists for supported models, and a modular agent skills system. Everything runs 100% on-device for total privacy.",
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "android-app",
+      "title": "Android Application",
+      "description": "This directory contains the full Android application. It's built with Gradle and uses LiteRT for model inference, Hilt for dependency injection, and Protocol Buffers for settings serialization.",
+      "focusDirectory": "Android",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "android-build",
+          "name": "Build Configuration",
+          "color": "#f59e0b",
+          "items": [
+            { "path": "Android/src/app/build.gradle.kts", "type": "file" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "app-core",
+      "title": "App Core & Entry Points",
+      "description": "The main application layer handles app lifecycle, dependency injection, navigation, and serialization. The highlighted entry points bootstrap the single-activity architecture, wire up the dependency injection container, and persist user data and settings.",
+      "focusDirectory": "Android/src/app/src/main/java/com/google/ai/edge/gallery",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "entry-points",
+          "name": "Entry Points",
+          "color": "#ef4444",
+          "items": [
+            { "path": "Android/src/app/src/main/java/com/google/ai/edge/gallery/MainActivity.kt", "type": "file" },
+            { "path": "Android/src/app/src/main/java/com/google/ai/edge/gallery/GalleryApplication.kt", "type": "file" },
+            { "path": "Android/src/app/src/main/java/com/google/ai/edge/gallery/GalleryApp.kt", "type": "file" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "di-layer",
+          "name": "Dependency Injection",
+          "color": "#8b5cf6",
+          "items": [
+            { "path": "Android/src/app/src/main/java/com/google/ai/edge/gallery/di", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "ui-layer",
+      "title": "UI Layer — Screens & Components",
+      "description": "The UI is built with Jetpack Compose following an MVVM pattern. The highlighted feature screens handle model discovery, chat, prompt experimentation, benchmarking, and model management. Shared components provide the chat system, model picker, and text/voice input.",
+      "focusDirectory": "Android/src/app/src/main/java/com/google/ai/edge/gallery/ui",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "screens",
+          "name": "Feature Screens",
+          "color": "#3b82f6",
+          "items": [
+            { "path": "Android/src/app/src/main/java/com/google/ai/edge/gallery/ui/home", "type": "directory" },
+            { "path": "Android/src/app/src/main/java/com/google/ai/edge/gallery/ui/llmchat", "type": "directory" },
+            { "path": "Android/src/app/src/main/java/com/google/ai/edge/gallery/ui/llmsingleturn", "type": "directory" },
+            { "path": "Android/src/app/src/main/java/com/google/ai/edge/gallery/ui/benchmark", "type": "directory" },
+            { "path": "Android/src/app/src/main/java/com/google/ai/edge/gallery/ui/modelmanager", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "shared-ui",
+          "name": "Shared Components",
+          "color": "#10b981",
+          "items": [
+            { "path": "Android/src/app/src/main/java/com/google/ai/edge/gallery/ui/common", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "custom-tasks",
+      "title": "Custom Tasks — Agent Chat, Mobile Actions & Tiny Garden",
+      "description": "Custom tasks extend the app with specialized AI experiences beyond simple chat. Agent Chat adds tool use and function calling, Mobile Actions enables offline device controls, and Tiny Garden is a natural-language mini-game.",
+      "focusDirectory": "Android/src/app/src/main/java/com/google/ai/edge/gallery/customtasks",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "agent-chat",
+          "name": "Agent Chat",
+          "color": "#6366f1",
+          "items": [
+            { "path": "Android/src/app/src/main/java/com/google/ai/edge/gallery/customtasks/agentchat", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "mobile-actions",
+          "name": "Mobile Actions",
+          "color": "#f97316",
+          "items": [
+            { "path": "Android/src/app/src/main/java/com/google/ai/edge/gallery/customtasks/mobileactions", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "tiny-garden",
+          "name": "Tiny Garden",
+          "color": "#22c55e",
+          "items": [
+            { "path": "Android/src/app/src/main/java/com/google/ai/edge/gallery/customtasks/tinygarden", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "skills-system",
+      "title": "Agent Skills",
+      "description": "Skills are modular capabilities that augment the on-device model. Built-in skills ship with the app — Wikipedia, maps, QR codes, mood tracking, and more. Featured skills are community-contributed and can be loaded from URLs.",
+      "focusDirectory": "skills",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "built-in-skills",
+          "name": "Built-in Skills",
+          "color": "#0ea5e9",
+          "items": [
+            { "path": "skills/built-in", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "featured-skills",
+          "name": "Featured / Community Skills",
+          "color": "#d946ef",
+          "items": [
+            { "path": "skills/featured", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "model-allowlists",
+      "title": "Model Allowlists",
+      "description": "Allowlists define which Hugging Face models appear in the app for each release version. The highlighted file is the current active list, and the highlighted directory contains versioned snapshots for past releases and iOS. Together they control model discovery, download URLs, and compatibility metadata.",
+      "focusDirectory": "",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "active-allowlist",
+          "name": "Active Allowlist",
+          "color": "#ef4444",
+          "items": [
+            { "path": "model_allowlist.json", "type": "file" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "versioned-allowlists",
+          "name": "Versioned Allowlists",
+          "color": "#f59e0b",
+          "items": [
+            { "path": "model_allowlists", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "docs-and-config",
+      "title": "Documentation & Project Config",
+      "description": "The repo root includes comprehensive documentation covering the project overview, build instructions, contribution guidelines, bug reporting, and the function calling API for agent skills. GitHub templates standardize issues, discussions, and CI workflows.",
+      "focusDirectory": "",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "docs",
+          "name": "Documentation",
+          "color": "#14b8a6",
+          "items": [
+            { "path": "README.md", "type": "file" },
+            { "path": "DEVELOPMENT.md", "type": "file" },
+            { "path": "CONTRIBUTING.md", "type": "file" },
+            { "path": "Function_Calling_Guide.md", "type": "file" },
+            { "path": "Bug_Reporting_Guide.md", "type": "file" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "github-config",
+          "name": "GitHub Config",
+          "color": "#a855f7",
+          "items": [
+            { "path": ".github", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "summary",
+      "title": "Tour Complete",
+      "description": "That wraps up the AI Edge Gallery codebase. You've seen the Android app architecture, the custom task modules, the modular skills system, and the versioned model allowlists. The project is open-source under Apache 2.0 — check out the contributing guide to get involved.",
+      "focusDirectory": "",
+      "colorMode": "fileTypes"
+    }
+  ]
+}
